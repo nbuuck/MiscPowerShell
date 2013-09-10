@@ -24,7 +24,7 @@ if($DN -eq ""){
 }
 
 #Compose the complete DN of the container.
-if($DN.Substring(0,1) -eq ","){ $DN = $DN.Substring(1,$DN.Length-1) }
+$DN = $DN.Remove(0,1) # Remove the leading ","
 $DN = "CN=Sites,CN=Configuration,$DN"
 Write-Verbose "DN: $DN"
 
