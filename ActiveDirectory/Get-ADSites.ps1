@@ -21,10 +21,10 @@ if($DN -eq ""){
 		Write-Verbose "Parsed: $sub"
 		$DN = $DN + ",DC=$sub"
 	}
+	$DN = $DN.Remove(0,1) # Remove the leading ","
 }
 
 #Compose the complete DN of the container.
-$DN = $DN.Remove(0,1) # Remove the leading ","
 $DN = "CN=Sites,CN=Configuration,$DN"
 Write-Verbose "DN: $DN"
 
