@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<Style id="site-without-dc">
+			<IconStyle>
+				<scale>3.0</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id="site-with-dc">
+			<IconStyle>
+				<scale>3.0</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/paddle/blu-blank.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id='site-link'>
+			<LineStyle>
+				<color>ff5EDDFF</color>
+				<width>4</width>
+			</LineStyle>
+		</Style>
+{PLACEMARKS}
+	</Document>
+</kml>
