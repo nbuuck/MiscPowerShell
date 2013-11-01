@@ -24,7 +24,10 @@ Function Get-SiteCoordinates($siteList){
 
 # Get the domain name for use in search bases for AD queries.
 $domains = $Env:USERDNSDOMAIN
-if($domains -eq $null) { return }
+if($domains -eq $null) {
+	Write-Error This computer does not belong to a domain.
+	return
+}
 $domains = $domains.Split(".")
 foreach($domain in $domains){
 	$dnSuffix += "DC=$domain,"
@@ -33,7 +36,7 @@ $dnSuffix = $dnSuffix.TrimEnd(',')
 
 # Build search bases for Containers with Site information.
 $sitesSearchBase = "CN=Sites,CN=Configuration,$dnSuffix"
-$siteLinksBase = "CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,$dnSuffix"
+$siteLinksBase = "CN=IP,CN=Inter-Site Transports,$sitesSearchBase"
 
 # Get all Inter-Site Transport links.
 $siteLinks = Get-ADObject `
@@ -96,6 +99,7 @@ foreach($siteLink in $siteLinks){
 }
 
 # Substitute in the XML of our Placemarks into a placeholder string in the KML.
-$places = $places.Substring(0,$places.Length - 1)
+$places = $places.TrimEnd("`n")
 $kml = $kml -replace "{PLACEMARKS}", $places
+# Use Set-Content so file is ANSI or Maps won't import.
 $kml | Set-Content -Path $kmlFile
