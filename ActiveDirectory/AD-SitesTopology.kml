@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<Style id="site-without-dc">
+			<IconStyle>
+				<scale>3.0</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/paddle/ylw-blank.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id="site-with-dc">
+			<IconStyle>
+				<scale>3.0</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/paddle/blu-blank.png</href>
+				</Icon>
+				<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+			</IconStyle>
+		</Style>
+		<Style id='site-link'>
+			<LineStyle>
+				<color>ff5EDDFF</color>
+				<width>4</width>
+			</LineStyle>
+		</Style>
+		<Placemark>
+			<styleUrl>#site-with-dc</styleUrl>
+			<name>00-Lifeline</name>
+			<description>Domain Controllers: FE00DC2</description>
+			<Point>
+				<coordinates>-86.042747,39.775998,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-with-dc</styleUrl>
+			<name>10-HQ</name>
+			<description>Domain Controllers: FE10DC1,FE10DC2</description>
+			<Point>
+				<coordinates>-85.222837,40.999423,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>19-Wilburton</name>
+			<description></description>
+			<Point>
+				<coordinates>-95.327179,34.905972,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>22-Little-Rock</name>
+			<description></description>
+			<Point>
+				<coordinates>-92.421309,34.647313,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-with-dc</styleUrl>
+			<name>23-Oklahoma-City</name>
+			<description>Domain Controllers: FE23DC1</description>
+			<Point>
+				<coordinates>-97.588593,35.508116,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>27-Fresno</name>
+			<description></description>
+			<Point>
+				<coordinates>-119.68947,36.777444,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>31-Canby</name>
+			<description></description>
+			<Point>
+				<coordinates>-122.671496,45.264814,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-with-dc</styleUrl>
+			<name>41-Hillsboro</name>
+			<description>Domain Controllers: FE41DC1</description>
+			<Point>
+				<coordinates>-122.912306,45.551443,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>45-GasCity</name>
+			<description></description>
+			<Point>
+				<coordinates>-85.592515,40.490663,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>50-Madison</name>
+			<description></description>
+			<Point>
+				<coordinates>-89.288685,43.043488,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>53-Saco</name>
+			<description></description>
+			<Point>
+				<coordinates>-70.430497,43.533842,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>59-Ipswich</name>
+			<description></description>
+			<Point>
+				<coordinates>1.115429,52.079401,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>60-Izmir</name>
+			<description></description>
+			<Point>
+				<coordinates>27.267881,38.225505,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-with-dc</styleUrl>
+			<name>62-Wittlich</name>
+			<description>Domain Controllers: FE62DC1</description>
+			<Point>
+				<coordinates>6.908895,49.989104,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>65-Austrailia</name>
+			<description></description>
+			<Point>
+				<coordinates>145.238366,-38.022934,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>66-Brno</name>
+			<description></description>
+			<Point>
+				<coordinates>16.673488,49.18399,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>6-Monterrey</name>
+			<description></description>
+			<Point>
+				<coordinates>-100.301062,25.693926,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>72-Cedegolo</name>
+			<description></description>
+			<Point>
+				<coordinates>10.346823,46.082385,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>73-Coverco</name>
+			<description></description>
+			<Point>
+				<coordinates>12.615854,45.758347,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>74-Shanghai-Beijing</name>
+			<description></description>
+			<Point>
+				<coordinates>121.402729,31.204068,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>75-Suzhou</name>
+			<description></description>
+			<Point>
+				<coordinates>120.663033,31.325157,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>77-Japan</name>
+			<description></description>
+			<Point>
+				<coordinates>139.733614,35.737038,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>79-Linares</name>
+			<description></description>
+			<Point>
+				<coordinates>-99.576476,24.872472,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>82-Toronto</name>
+			<description></description>
+			<Point>
+				<coordinates>-79.705533,43.850483,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>83-Bloemfontein</name>
+			<description></description>
+			<Point>
+				<coordinates>26.225631,-29.117975,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>83-Capetown</name>
+			<description></description>
+			<Point>
+				<coordinates>18.425231,-33.92399,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>83-Durban</name>
+			<description></description>
+			<Point>
+				<coordinates>31.02774,-29.857617,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-with-dc</styleUrl>
+			<name>83-Sebenza</name>
+			<description>Domain Controllers: FE83DC1</description>
+			<Point>
+				<coordinates>27.979183,-26.086061,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-without-dc</styleUrl>
+			<name>86-Winnipeg</name>
+			<description></description>
+			<Point>
+				<coordinates>-97.035395,49.879925,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-with-dc</styleUrl>
+			<name>87-Brazil</name>
+			<description>Domain Controllers: FE87DC1</description>
+			<Point>
+				<coordinates>-48.852088,-26.282372,0.0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>00-10</name>
+			<description>Cost: 10<br/>
+				Interval: 15m</description>
+			<LineString>
+				<coordinates>-86.042747,39.775998
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>19-23</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-95.327179,34.905972
+					-97.588593,35.508116
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>22-23</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-92.421309,34.647313
+					-97.588593,35.508116
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>23-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-97.588593,35.508116
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>27-41</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-122.912306,45.551443
+					-119.68947,36.777444
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>31-41</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-122.671496,45.264814
+					-122.912306,45.551443
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>41-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-122.912306,45.551443
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>45-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-85.592515,40.490663
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>50-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-89.288685,43.043488
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>53-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-70.430497,43.533842
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>59-62</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>1.115429,52.079401
+					6.908895,49.989104
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>60-62</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>27.267881,38.225505
+					6.908895,49.989104
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>62-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>6.908895,49.989104
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>6-23</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-100.301062,25.693926
+					-97.588593,35.508116
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>65-41</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-122.912306,45.551443
+					145.238366,-38.022934
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>66-62</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>16.673488,49.18399
+					6.908895,49.989104
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>72-62</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>10.346823,46.082385
+					6.908895,49.989104
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>73-62</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>12.615854,45.758347
+					6.908895,49.989104
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>74-41</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-122.912306,45.551443
+					121.402729,31.204068
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>75-41</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-122.912306,45.551443
+					120.663033,31.325157
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>77-41</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-122.912306,45.551443
+					139.733614,35.737038
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>79-23</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-99.576476,24.872472
+					-97.588593,35.508116
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>82-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-79.705533,43.850483
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>83B-83S</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>26.225631,-29.117975
+					27.979183,-26.086061
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>83C-83S</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>18.425231,-33.92399
+					27.979183,-26.086061
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>83D-83S</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>31.02774,-29.857617
+					27.979183,-26.086061
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>83S-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>27.979183,-26.086061
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>86-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-97.035395,49.879925
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#site-link</styleUrl>
+			<name>87-10</name>
+			<description>Cost: 10<br/>
+				Interval: 30m</description>
+			<LineString>
+				<coordinates>-48.852088,-26.282372
+					-85.222837,40.999423
+				</coordinates>
+			</LineString>
+		</Placemark>
+	</Document>
+</kml>
