@@ -1,9 +1,12 @@
-# nbuuck _at_ gmail dot com 
+<#
+nbuuck _at_ gmail dot com 
 
-# PURPOSE: Produces a Keyhole Markup Language file representing an Active Directory
-# domain's Site topology.
-# REQUIREMENTS: Requires read access to the Configuration partition of the domain and
-# that the Location attribute of every Site contains a KML-compliant GPS coordinate.
+PURPOSE: Produces a Keyhole Markup Language file representing an Active Directory
+domain's Site topology.
+
+REQUIREMENTS: Requires read access to the Configuration partition of the domain and
+that the Location attribute of every Site contains a KML-compliant GPS coordinate.
+#>
 
 $filePath = "AD-SitesTopology.kml"
 $kmlTemplate = ".\Template-ADSiteTopologyKML.xml"
