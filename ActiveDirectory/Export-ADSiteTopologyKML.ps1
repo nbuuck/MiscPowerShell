@@ -7,13 +7,13 @@
 
 $filePath = "AD-SitesTopology.kml"
 $kmlTemplate = ".\Template-ADSiteTopologyKML.xml"
-$Domain = $($Env:USERDNSDOMAIN)
+$domain = $($Env:USERDNSDOMAIN)
 
 Clear-Host
 Import-Module ActiveDirectory
 
 # FUNCTIONS
-Function Get-SiteCoordinates($siteList){
+function Get-SiteCoordinates($siteList){
 	$locations = ""
 	$first = $true
 	foreach($siteDN in $siteList){
@@ -31,13 +31,13 @@ Function Get-SiteCoordinates($siteList){
 }
 
 # Get the domain name for use in search bases for AD queries.
-if($Domain -eq $null) {
+if($domain -eq $null) {
 	Write-Error This computer does not belong to a domain.
 	return
 }
-$Domain = $Domain.Split(".")
-foreach($sumdomain in $Domain){
-	$dnSuffix += "DC=$sumdomain,"
+$domain = $domain.Split(".")
+foreach($subdomain in $domain){
+	$dnSuffix += "DC=$subdomain,"
 }
 $dnSuffix = $dnSuffix.TrimEnd(',')
 
@@ -65,7 +65,6 @@ $places = ""
 
 # Represent each Site as a single-point Placemark.
 foreach($site in $sites){
-
 	$serversBase = "CN=Servers,$($site.DistinguishedName)"
 	$servers = Get-ADObject `
 		-SearchBase $serversBase `
@@ -78,7 +77,7 @@ foreach($site in $sites){
 		$serverList = ""
 		$servers | ForEach-Object { $serverList += "$($_.Name)," }
 		$serverList = $serverList.TrimEnd(",")
-		$desc += "Domain Controllers: $serverList"
+		$desc += "domain Controllers: $serverList"
 	}else{
 		$places += "`t`t`t<styleUrl>#site-without-dc</styleUrl>`n"
 	}
@@ -90,10 +89,8 @@ foreach($site in $sites){
 	$places += "`t`t</Placemark>`n"
 }
 
-# Represent each Site Link as a two point LineString.
-# Not sure how this will behave in domains containing Site Links
-#		with more than two sites. We follow MS' recommendation and express
-#		our topology using Links with two Sites in each Link.
+# Represent each Site Link as a LineString.
+# Only tested with SiteLinks having only two Sites per link.
 foreach($siteLink in $siteLinks){
 	$places += "`t`t<Placemark>`n"
 	$places += "`t`t`t<styleUrl>#site-link</styleUrl>`n"
