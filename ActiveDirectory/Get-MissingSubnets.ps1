@@ -4,7 +4,7 @@
 $logName = "$($Env:SystemRoot)\debug\netlogon.log"
 $dateToGet = (Get-Date).AddDays(-1).ToString("MM/dd")
 
-$log = (Get-Content $logName) -match "NO_CLIENT_SITE"
+$log = (Get-Content $logName) -match "NO_CLIENT_SITE" -match $dateToGet
 $events = @()
 foreach($line in $log){
 	if($line -eq $null) { break }
@@ -23,8 +23,7 @@ foreach($line in $log){
 if($events.Count -eq 0) { Write-Host "No events to send, exiting... "; return }
 $events = $events | Select -Unique InetAddress, Hostname | Sort-Object InetAddress | FT -AutoSize | Out-String
 
-$body = "The following hosts reside in a subnet that is not registered in AD Sites & Services:`n"
-$body += $events
+$body = "The following hosts reside in a subnet that is not registered in AD Sites & Services:`n$events"
 
 $smtpServer = "smtp.domain.com"
 $msg = new-object Net.Mail.MailMessage
