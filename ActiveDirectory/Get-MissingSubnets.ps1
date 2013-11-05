@@ -1,4 +1,4 @@
-﻿# nbuuck@apterainc.com
+﻿# nbuuck (at) apterainc [dot] com
 # Watches the netlogon log for hosts in subnets that aren't present in AD Sites & Services so we can add them.
 
 $logName = "$($Env:SystemRoot)\debug\netlogon.log"
