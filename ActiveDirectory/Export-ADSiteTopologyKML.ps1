@@ -35,7 +35,7 @@ function Get-SiteCoordinates($siteList){
 
 # Get the domain name for use in search bases for AD queries.
 if($domain -eq $null) {
-	Write-Error This computer does not belong to a domain.
+	Write-Error "This computer does not belong to a domain."
 	return
 }
 $domain = $domain.Split(".")
@@ -47,6 +47,7 @@ $dnSuffix = $dnSuffix.TrimEnd(',')
 # Build search bases for Containers with Site information.
 $sitesSearchBase = "CN=Sites,CN=Configuration,$dnSuffix"
 $siteLinksBase = "CN=IP,CN=Inter-Site Transports,$sitesSearchBase"
+$subnetsBase = "CN=Subnets,CN=Sites,CN=Configuration,$dnSuffix"
 
 # Get all Inter-Site Transport links.
 $siteLinks = Get-ADObject `
@@ -72,18 +73,35 @@ foreach($site in $sites){
 	$servers = Get-ADObject `
 		-SearchBase $serversBase `
 		-Filter { objectClass -eq "server" }
+	$subnets = Get-ADObject `
+		-SearchBase $subnetsBase `
+		-Filter { objectClass -eq "subnet" -and siteObject -eq $site.DistinguishedName } `
+		| Sort-Object Name
 	
 	$places += "`t`t<Placemark>`n"
 	$desc = ""
+	
+	# List site domain controllers in the description.
+	# TODO: Include as array of elements in ExtendedData.
 	if($servers -ne $null){
 		$places += "`t`t`t<styleUrl>#site-with-dc</styleUrl>`n"
 		$serverList = ""
 		$servers | ForEach-Object { $serverList += "$($_.Name)," }
 		$serverList = $serverList.TrimEnd(",")
-		$desc += "domain Controllers: $serverList"
+		$desc += "Domain Controllers: $serverList"
 	}else{
 		$places += "`t`t`t<styleUrl>#site-without-dc</styleUrl>`n"
 	}
+	
+	# List site subnets in the description.
+	# TODO: Include as array of elements in ExtendedData.
+	if($subnets -ne $null){
+		$desc += "`n`t`t`t`tSUBNETS:`n"
+		foreach($subnet in $subnets){
+			$desc += "`t`t`t`t$($subnet.Name)`n"
+		}
+	}	
+	
 	$places += "`t`t`t<name>$($site.Name)</name>`n"
 	$places += "`t`t`t<description>$desc</description>`n"
 	$places += "`t`t`t<Point>`n"
@@ -98,7 +116,7 @@ foreach($siteLink in $siteLinks){
 	$places += "`t`t<Placemark>`n"
 	$places += "`t`t`t<styleUrl>#site-link</styleUrl>`n"
 	$places += "`t`t`t<name>$($siteLink.Name)</name>`n"
-	$places += "`t`t`t<description>Cost: $($siteLink.Cost)<br/>`n"
+	$places += "`t`t`t<description>Cost: $($siteLink.Cost)`n"
 	$places += "`t`t`t`tInterval: $($siteLink.ReplInterval)m</description>`n"
 	$places += "`t`t`t<LineString>`n"
 	$places += "`t`t`t`t<coordinates>"
