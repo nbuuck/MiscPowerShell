@@ -5,12 +5,12 @@ $RemapPairs = @(
 $DriveLetters = (Get-Item -Path "HKCU:Network").GetSubKeyNames();
 $DriveLetters | ForEach-Object {
     $DriveLetter = $_;
-    $DriveMapKey = (Get-Item -Path "HKCU:Network\$_");
+    $DriveMapKey = (Get-Item -Path "HKCU:Network\$DriveLetter");
     $RemapPairs | ForEach-Object {
-        if($DriveMapKey.GetValue("RemotePath") -eq $_.OldPath){
-            Write-Host "$DriveLetter needs remapped from $($_.OldPath) to $($_.NewPath)";
+        $RemapPair = $_
+        if($DriveMapKey.GetValue("RemotePath") -eq $RemapPair.OldPath){
             NET USE $DriveLetter":" /DELETE;
-            NET USE $DriveLetter":" $_.NewPath /PERSISTENT:YES;
+            NET USE $DriveLetter":" $RemapPair.NewPath /PERSISTENT:YES;
         }
     }
 }
