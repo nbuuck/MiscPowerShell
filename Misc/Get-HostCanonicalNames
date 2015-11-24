@@ -1,0 +1,96 @@
+<#
+.SYNOPSIS
+Ingests a CSV of one or more MS DNS zone files and finds all CNAMEs that resolve
+to a given hostname, resolving recursively where a CNAME resolves to another
+CNAME.
+.PARAMETER InputFile
+A CSV of one or more MS DNS zones. The script will assume the headers.
+.PARAMETER Hostname
+Specifies the DNS name that you want to get all associated CNAME records for.
+#>
+PARAM (
+	[Parameter(Mandatory = $true, Position = 0, valueFromPipeline=$true)]
+	[ValidateScript({Test-Path $_})]
+	[String]$InputFile,
+	
+	[Parameter(Mandatory = $true, Position = 1, valueFromPipeline=$true)]
+	[String]$Hostname
+)
+
+if(-not $Hostname.EndsWith('.')){ $Hostname += "." }
+
+# Recursively resolve a CNAME to any non-canonical value
+#	like an A record.
+function Get-RecurisveName($cnameRecord){
+		
+	# Check for self-referencing recursive CNAME record.
+	if($cnameRecord.Key -ieq $cnameRecord.Value){
+		Write-Warning "Self-referencing CNAME $($cnameRecord.Key)"
+		# Return from call; otherwise, we'd infinitely recurse.
+		return $cnameRecord.Value
+	}
+	
+	# Search $otherCnames array for a CNAME whose Key is the Value
+	# of the current CNAME of this invocation.
+	$nextCname = $null
+	foreach($otherCname in $otherCnames){
+		if($otherCname.Key -ieq $cnameRecord.Value){
+			$nextCname = $otherCname
+		}
+	}
+	
+	# If there is no such CNAME, the result must be non-canonical
+	#	and we can return the value to the caller.
+	if($nextCname -eq $null){
+		return $cnameRecord.Value
+	} else { 
+		# If the next record is a CNAME, we need to recurse.
+		Get-RecurisveName($nextCname)
+	}
+	
+} # function Get-RecurisveName
+
+# MS DNS Zone File Headers
+$header = @("Zone","Key","RecordType","Value","Timestamp","TTL")
+
+$matches = @() # Array of DNS record keys that resolve to $Hostname.
+$records = Import-Csv -Path $InputFile -Header $header
+
+# Free memory by removing $records. Helpful for large zone files.
+Remove-Variable records
+
+# First, store any CNAMEs whose value is $Hostname in match array.
+foreach($record in $records){
+	if($record.Value -ieq $Hostname `
+		-and $record.RecordType -ieq "CNAME"){
+		$matches += $record.Key
+	}
+}
+
+# Next, get all CNAMEs that _aren't_ directly resolved to $Hostname.
+$otherCnames = @()
+foreach($record in $records){
+	if($record.RecordType -ieq "CNAME" `
+		-and $record.Value -ine $Hostname){
+		$otherCnames += $record;	
+	}
+}
+
+# Free memory by removing $records.
+Remove-Variable records
+
+# Check CNAMEs that don't directly resolve to $Hostname
+# to see if they recursively resolve to $Hostname.
+$otherCnames = ($otherCnames | Sort-Object Key)
+foreach($otherCname in $otherCnames){
+	$resolvedName = Get-RecurisveName($otherCname)
+	if($resolvedName -ieq $Hostname){
+		$matches += $resolvedName
+	}
+}
+
+# Free memory by removing $otherCnames.
+# May not be necessary since we're about to exit but doesn't hurt.
+Remove-Variable otherCnames
+
+$matches | Sort-Object
