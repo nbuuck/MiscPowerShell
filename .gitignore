@@ -214,3 +214,6 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 *.csv
+Windows/Get-MaxFileSize.ps1
+Office365/Connect-RemotePowershell.ps1
+VMware/Get-VMOldSnapshots.ps1
