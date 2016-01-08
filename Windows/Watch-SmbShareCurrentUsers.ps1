@@ -1,4 +1,4 @@
-# Quick a dirty script to monitor the number of users connected to
+# Quick and dirty script to monitor the number of users connected to
 # a hosts's SMB shares and output them with color coding as the
 # number of users changes.
 
