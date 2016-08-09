@@ -56,9 +56,6 @@ $header = @("Zone","Key","RecordType","Value","Timestamp","TTL")
 $matches = @() # Array of DNS record keys that resolve to $Hostname.
 $records = Import-Csv -Path $InputFile -Header $header
 
-# Free memory by removing $records. Helpful for large zone files.
-Remove-Variable records
-
 # First, store any CNAMEs whose value is $Hostname in match array.
 foreach($record in $records){
 	if($record.Value -ieq $Hostname `
